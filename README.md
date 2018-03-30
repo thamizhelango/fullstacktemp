@@ -30,46 +30,6 @@ Add the `help` flag on any command to see how you can use it. For example, `yarn
 
 The `yarn run` command will list all of the scripts available to run for this project.
 
-### Service workers
-
-Service workers are commented by default, to enable them please uncomment the following code.
-
-* The service worker registering script in index.html
-
-```html
-<script>
-    if ('serviceWorker' in navigator) {
-        navigator.serviceWorker
-        .register('./sw.js')
-        .then(function() { console.log('Service Worker Registered'); });
-    }
-</script>
-```
-
-Note: workbox creates the respective service worker and dynamically generate the `sw.js`
-
-### Managing dependencies
-
-For example, to add [Leaflet][] library as a runtime dependency of your application, you would run following command:
-
-    yarn add --exact leaflet
-
-To benefit from TypeScript type definitions from [DefinitelyTyped][] repository in development, you would run following command:
-
-    yarn add --dev --exact @types/leaflet
-
-Then you would import the JS and CSS files specified in library's installation instructions so that [Webpack][] knows about them:
-Edit [src/main/webapp/app/vendor.ts](src/main/webapp/app/vendor.ts) file:
-~~~
-import 'leaflet/dist/leaflet.js';
-~~~
-
-Edit [src/main/webapp/content/css/vendor.css](src/main/webapp/content/css/vendor.css) file:
-~~~
-@import '~leaflet/dist/leaflet.css';
-~~~
-Note: there are still few other things remaining to do for Leaflet that we won't detail here.
-
 ### Using angular-cli
 
 You can also use [Angular CLI][] to generate some custom client code.
@@ -83,18 +43,6 @@ will generate few files:
     create src/main/webapp/app/my-component/my-component.component.html
     create src/main/webapp/app/my-component/my-component.component.ts
     update src/main/webapp/app/app.module.ts
-
-### Doing API-First development using swagger-codegen
-
-[Swagger-Codegen]() is configured for this application. You can generate API code from the `src/main/resources/swagger/api.yml` definition file by running:
-```bash
-./mvnw generate-sources
-```
-Then implements the generated interfaces with `@RestController` classes.
-
-To edit the `api.yml` definition file, you can use a tool such as [Swagger-Editor](). Start a local instance of the swagger-editor using docker by running: `docker-compose -f src/main/docker/swagger-editor.yml up -d`. The editor will then be reachable at [http://localhost:7742](http://localhost:7742).
-
-Refer to [Doing API-First development][] for more details.
 
 ## Building for production
 
