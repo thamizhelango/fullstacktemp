@@ -1,0 +1,44 @@
+
+<div *ngIf="location">
+    <h2><span jhiTranslate="fullstacktempApp.location.detail.title">Location</span> {{location.id}}</h2>
+    <hr>
+    <jhi-alert-error></jhi-alert-error>
+    <dl class="row-md jh-entity-details">
+        <dt><span jhiTranslate="fullstacktempApp.location.streetAddress">Street Address</span></dt>
+        <dd>
+            <span>{{location.streetAddress}}</span>
+        </dd>
+        <dt><span jhiTranslate="fullstacktempApp.location.postalCode">Postal Code</span></dt>
+        <dd>
+            <span>{{location.postalCode}}</span>
+        </dd>
+        <dt><span jhiTranslate="fullstacktempApp.location.city">City</span></dt>
+        <dd>
+            <span>{{location.city}}</span>
+        </dd>
+        <dt><span jhiTranslate="fullstacktempApp.location.stateProvince">State Province</span></dt>
+        <dd>
+            <span>{{location.stateProvince}}</span>
+        </dd>
+        <dt><span jhiTranslate="fullstacktempApp.location.country">Country</span></dt>
+        <dd>
+            <div *ngIf="location.country">
+                <a [routerLink]="['/country', location.country?.id]">{{location.country?.id}}</a>
+            </div>
+        </dd>
+    </dl>
+
+    <button type="submit"
+            (click)="previousState()"
+            class="btn btn-info">
+        <span class="fa fa-arrow-left"></span>&nbsp;<span jhiTranslate="entity.action.back"> Back</span>
+    </button>
+
+    <button type="button"
+            [routerLink]="['/', { outlets: { popup: 'location/'+ location.id + '/edit'} }]"
+            replaceUrl="true"
+            queryParamsHandling="merge"
+            class="btn btn-primary">
+        <span class="fa fa-pencil"></span>&nbsp;<span jhiTranslate="entity.action.edit"> Edit</span>
+    </button>
+</div>

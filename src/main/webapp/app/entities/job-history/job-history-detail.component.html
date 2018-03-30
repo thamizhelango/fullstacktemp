@@ -1,0 +1,52 @@
+
+<div *ngIf="jobHistory">
+    <h2><span jhiTranslate="fullstacktempApp.jobHistory.detail.title">Job History</span> {{jobHistory.id}}</h2>
+    <hr>
+    <jhi-alert-error></jhi-alert-error>
+    <dl class="row-md jh-entity-details">
+        <dt><span jhiTranslate="fullstacktempApp.jobHistory.startDate">Start Date</span></dt>
+        <dd>
+            <span>{{jobHistory.startDate | date:'medium'}}</span>
+        </dd>
+        <dt><span jhiTranslate="fullstacktempApp.jobHistory.endDate">End Date</span></dt>
+        <dd>
+            <span>{{jobHistory.endDate | date:'medium'}}</span>
+        </dd>
+        <dt><span jhiTranslate="fullstacktempApp.jobHistory.language">Language</span></dt>
+        <dd>
+            <span jhiTranslate="{{'fullstacktempApp.Language.' + jobHistory.language}}">{{jobHistory.language}}</span>
+        </dd>
+        <dt><span jhiTranslate="fullstacktempApp.jobHistory.job">Job</span></dt>
+        <dd>
+            <div *ngIf="jobHistory.job">
+                <a [routerLink]="['/job', jobHistory.job?.id]">{{jobHistory.job?.id}}</a>
+            </div>
+        </dd>
+        <dt><span jhiTranslate="fullstacktempApp.jobHistory.department">Department</span></dt>
+        <dd>
+            <div *ngIf="jobHistory.department">
+                <a [routerLink]="['/department', jobHistory.department?.id]">{{jobHistory.department?.id}}</a>
+            </div>
+        </dd>
+        <dt><span jhiTranslate="fullstacktempApp.jobHistory.employee">Employee</span></dt>
+        <dd>
+            <div *ngIf="jobHistory.employee">
+                <a [routerLink]="['/employee', jobHistory.employee?.id]">{{jobHistory.employee?.id}}</a>
+            </div>
+        </dd>
+    </dl>
+
+    <button type="submit"
+            (click)="previousState()"
+            class="btn btn-info">
+        <span class="fa fa-arrow-left"></span>&nbsp;<span jhiTranslate="entity.action.back"> Back</span>
+    </button>
+
+    <button type="button"
+            [routerLink]="['/', { outlets: { popup: 'job-history/'+ jobHistory.id + '/edit'} }]"
+            replaceUrl="true"
+            queryParamsHandling="merge"
+            class="btn btn-primary">
+        <span class="fa fa-pencil"></span>&nbsp;<span jhiTranslate="entity.action.edit"> Edit</span>
+    </button>
+</div>

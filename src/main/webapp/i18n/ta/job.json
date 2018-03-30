@@ -1,0 +1,26 @@
+
+{
+    "fullstacktempApp": {
+        "job" : {
+            "home": {
+                "title": "Jobs",
+                "createLabel": "Job-ஐ உருவாக்கு",
+                "createOrEditLabel": "Job -ஐ மாற்று (அ) உருவாக்கு"
+            },
+            "created": "Job புதிதாக உருவாக்கப்பட்டது, அடையாளம் {{ param }}",
+            "updated": "Job மாற்றப்பட்டது, அடையாளம்  {{ param }}",
+            "deleted": "A Job நீக்கப்பட்டது, அடையாளம {{ param }}",
+            "delete": {
+                "question": "நீக்குவதற்கு உறுதி செய் Job {{ id }}?"
+            },
+            "detail": {
+                "title": "Job"
+            },
+            "jobTitle": "Job Title",
+            "minSalary": "Min Salary",
+            "maxSalary": "Max Salary",
+            "employee": "Employee",
+            "task": "Task"
+        }
+    }
+}

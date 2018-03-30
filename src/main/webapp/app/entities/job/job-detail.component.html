@@ -1,0 +1,46 @@
+
+<div *ngIf="job">
+    <h2><span jhiTranslate="fullstacktempApp.job.detail.title">Job</span> {{job.id}}</h2>
+    <hr>
+    <jhi-alert-error></jhi-alert-error>
+    <dl class="row-md jh-entity-details">
+        <dt><span jhiTranslate="fullstacktempApp.job.jobTitle">Job Title</span></dt>
+        <dd>
+            <span>{{job.jobTitle}}</span>
+        </dd>
+        <dt><span jhiTranslate="fullstacktempApp.job.minSalary">Min Salary</span></dt>
+        <dd>
+            <span>{{job.minSalary}}</span>
+        </dd>
+        <dt><span jhiTranslate="fullstacktempApp.job.maxSalary">Max Salary</span></dt>
+        <dd>
+            <span>{{job.maxSalary}}</span>
+        </dd>
+        <dt><span jhiTranslate="fullstacktempApp.job.employee">Employee</span></dt>
+        <dd>
+            <div *ngIf="job.employee">
+                <a [routerLink]="['/employee', job.employee?.id]">{{job.employee?.id}}</a>
+            </div>
+        </dd>
+        <dt><span jhiTranslate="fullstacktempApp.job.task">Task</span></dt>
+        <dd>
+            <span *ngFor="let task of job.tasks; let last = last">
+                <a [routerLink]="['/task', task?.id ]">{{task.title}}</a>{{last ? '' : ', '}}
+            </span>
+        </dd>
+    </dl>
+
+    <button type="submit"
+            (click)="previousState()"
+            class="btn btn-info">
+        <span class="fa fa-arrow-left"></span>&nbsp;<span jhiTranslate="entity.action.back"> Back</span>
+    </button>
+
+    <button type="button"
+            [routerLink]="['/', { outlets: { popup: 'job/'+ job.id + '/edit'} }]"
+            replaceUrl="true"
+            queryParamsHandling="merge"
+            class="btn btn-primary">
+        <span class="fa fa-pencil"></span>&nbsp;<span jhiTranslate="entity.action.edit"> Edit</span>
+    </button>
+</div>

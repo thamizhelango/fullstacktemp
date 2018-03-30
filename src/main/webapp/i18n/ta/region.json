@@ -1,0 +1,22 @@
+
+{
+    "fullstacktempApp": {
+        "region" : {
+            "home": {
+                "title": "Regions",
+                "createLabel": "Region-ஐ உருவாக்கு",
+                "createOrEditLabel": "Region -ஐ மாற்று (அ) உருவாக்கு"
+            },
+            "created": "Region புதிதாக உருவாக்கப்பட்டது, அடையாளம் {{ param }}",
+            "updated": "Region மாற்றப்பட்டது, அடையாளம்  {{ param }}",
+            "deleted": "A Region நீக்கப்பட்டது, அடையாளம {{ param }}",
+            "delete": {
+                "question": "நீக்குவதற்கு உறுதி செய் Region {{ id }}?"
+            },
+            "detail": {
+                "title": "Region"
+            },
+            "regionName": "Region Name"
+        }
+    }
+}
