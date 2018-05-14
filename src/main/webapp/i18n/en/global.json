@@ -27,7 +27,7 @@
                 "register": "Register"
             },
             "admin": {
-                "main": "Administration",
+                "main": "Admin",
                 "userManagement": "User management",
                 "tracker": "User tracker",
                 "metrics": "Metrics",

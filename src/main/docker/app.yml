@@ -1,7 +1,7 @@
 version: '2'
 services:
     fullstacktemp-app:
-        image: fullstacktemp
+        image: thamizhelango/fullstacktemp:1.0
         environment:
             - SPRING_PROFILES_ACTIVE=prod,swagger
             - SPRING_DATASOURCE_URL=jdbc:mysql://fullstacktemp-mysql:3306/fullstacktemp?useUnicode=true&characterEncoding=utf8&useSSL=false

@@ -22,6 +22,7 @@ public class Country implements Serializable {
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
 
+    //Test
     @Column(name = "country_name")
     private String countryName;
 
