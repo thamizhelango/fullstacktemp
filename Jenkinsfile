@@ -54,11 +54,11 @@ node {
     stage('build docker') {
         sh "cp -R src/main/docker target/"
         sh "cp target/*.war target/docker/"
-        dockerImage = docker.build('fullstacktemp/fullstacktemp', 'target/docker')
+        dockerImage = docker.build('thamizhelango/fullstacktemp', 'target/docker')
     }
 
     stage('publish docker') {
-        docker.withRegistry('https://registry.hub.docker.com', 'thamizhelango') {
+        docker.withRegistry('https://registry.hub.docker.com', 'docker-login') {
             dockerImage.push 'latest'
         }
     }
